@@ -56,9 +56,6 @@ vercel env pull
 ### Development
 
 ```bash
-# Build first (required after fresh clone)
-pnpm build
-
 # Start both apps in dev mode
 pnpm dev
 # web: http://localhost:3000
