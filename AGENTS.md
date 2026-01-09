@@ -28,14 +28,36 @@ nextjs-foundations-starter/
 - **Turborepo** - Monorepo build orchestration
 - **Biome** - Fast linting and formatting (replaces ESLint/Prettier)
 - **pnpm** - Fast, disk-efficient package manager
+- **Vercel CLI** - Deploy, link projects, manage env vars
 
 ## Workflows
+
+### Initial Setup
+
+```bash
+# Install Vercel CLI globally
+pnpm add -g vercel
+
+# Authenticate with Vercel
+vercel login
+
+# Clone and install
+git clone https://github.com/YOUR_USERNAME/nextjs-foundations
+cd nextjs-foundations
+pnpm install
+
+# Link to your Vercel project
+vercel link
+
+# Pull environment variables
+vercel env pull
+```
 
 ### Development
 
 ```bash
-# Install dependencies
-pnpm install
+# Build first (required after fresh clone)
+pnpm build
 
 # Start both apps in dev mode
 pnpm dev
@@ -45,6 +67,22 @@ pnpm dev
 # Start a specific app
 pnpm dev --filter @repo/web
 pnpm dev --filter @repo/blog
+```
+
+### Vercel CLI
+
+```bash
+# Check deployment status
+vercel list
+
+# View deployment logs
+vercel logs <deployment-url>
+
+# Pull latest env vars
+vercel env pull
+
+# Open project in dashboard
+vercel open
 ```
 
 ### Quality Checks
