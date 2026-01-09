@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
 // Type definitions
 export type BlogPost = {
@@ -23,24 +23,24 @@ export type BlogPost = {
 
 // Categories for blog posts
 const CATEGORIES = [
-  "Technology",
-  "Design",
-  "Business",
-  "Marketing",
-  "Development",
-  "Product",
-  "Engineering",
-  "Data Science",
-  "AI/ML",
-  "DevOps",
+  'Technology',
+  'Design',
+  'Business',
+  'Marketing',
+  'Development',
+  'Product',
+  'Engineering',
+  'Data Science',
+  'AI/ML',
+  'DevOps',
 ];
 
 // Generate a single blog post
 const generateBlogPost = (overrides?: Partial<BlogPost>): BlogPost => {
   const title = faker.lorem.sentence({ min: 3, max: 8 });
   const slug = faker.helpers.slugify(title).toLowerCase();
-  const content = faker.lorem.paragraphs({ min: 8, max: 15 }, "\n\n");
-  const wordCount = content.split(" ").length;
+  const content = faker.lorem.paragraphs({ min: 8, max: 15 }, '\n\n');
+  const wordCount = content.split(' ').length;
   const readingTime = Math.ceil(wordCount / 200); // Assuming 200 words per minute
 
   return {
@@ -52,23 +52,23 @@ const generateBlogPost = (overrides?: Partial<BlogPost>): BlogPost => {
     category: faker.helpers.arrayElement(CATEGORIES),
     tags: faker.helpers.arrayElements(
       [
-        "javascript",
-        "typescript",
-        "react",
-        "nextjs",
-        "nodejs",
-        "css",
-        "html",
-        "web",
-        "mobile",
-        "cloud",
-        "database",
-        "api",
-        "tutorial",
-        "guide",
-        "tips",
+        'javascript',
+        'typescript',
+        'react',
+        'nextjs',
+        'nodejs',
+        'css',
+        'html',
+        'web',
+        'mobile',
+        'cloud',
+        'database',
+        'api',
+        'tutorial',
+        'guide',
+        'tips',
       ],
-      { min: 2, max: 5 },
+      { min: 2, max: 5 }
     ),
     author: {
       name: faker.person.fullName(),
@@ -106,7 +106,7 @@ export async function fetchPosts(limit = 10, offset = 0): Promise<BlogPost[]> {
 
   const allPosts = getAllPosts();
   const sortedPosts = allPosts.sort(
-    (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime(),
+    (a, b) => b.publishedAt.getTime() - a.publishedAt.getTime()
   );
 
   return sortedPosts.slice(offset, offset + limit);
@@ -120,7 +120,7 @@ export async function fetchPosts(limit = 10, offset = 0): Promise<BlogPost[]> {
  */
 export async function fetchPostsByCategory(
   category: string,
-  limit = 10,
+  limit = 10
 ): Promise<BlogPost[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 300));
@@ -134,7 +134,7 @@ export async function fetchPostsByCategory(
   // If no posts found in category, generate some
   if (categoryPosts.length === 0) {
     return Array.from({ length: limit }, () =>
-      generateBlogPost({ category }),
+      generateBlogPost({ category })
     ).sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
   }
 
@@ -169,7 +169,7 @@ export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
  */
 export async function fetchRecommendedPostsBySlug(
   slug: string,
-  limit = 5,
+  limit = 5
 ): Promise<BlogPost[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 300));
@@ -196,7 +196,7 @@ export async function fetchRecommendedPostsBySlug(
 
       // Check if has common tags
       const commonTags = post.tags.filter((tag) =>
-        currentPost.tags.includes(tag),
+        currentPost.tags.includes(tag)
       );
       return commonTags.length > 0;
     })
@@ -218,7 +218,7 @@ export async function fetchRecommendedPostsBySlug(
     const additionalPosts = allPosts.filter(
       (post) =>
         post.slug !== slug &&
-        !recommendedPosts.some((r) => r.slug === post.slug),
+        !recommendedPosts.some((r) => r.slug === post.slug)
     );
 
     const randomPosts = faker.helpers
@@ -249,7 +249,7 @@ export async function fetchCategories(): Promise<string[]> {
  */
 export async function searchPosts(
   query: string,
-  limit = 10,
+  limit = 10
 ): Promise<BlogPost[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 400));
@@ -264,7 +264,7 @@ export async function searchPosts(
         post.excerpt.toLowerCase().includes(lowerQuery) ||
         post.content.toLowerCase().includes(lowerQuery) ||
         post.tags.some((tag) => tag.toLowerCase().includes(lowerQuery)) ||
-        post.category.toLowerCase().includes(lowerQuery),
+        post.category.toLowerCase().includes(lowerQuery)
     )
     .sort((a, b) => {
       // Prioritize title matches

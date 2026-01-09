@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
 // Type definitions
 export type TeamMember = {
@@ -51,7 +51,7 @@ export type Service = {
   price?: {
     amount: number;
     currency: string;
-    period?: "monthly" | "yearly" | "one-time";
+    period?: 'monthly' | 'yearly' | 'one-time';
   };
   popular: boolean;
 };
@@ -80,7 +80,7 @@ export type ContactInfo = {
           open: string;
           close: string;
         }
-      | "closed";
+      | 'closed';
   };
 };
 
@@ -112,63 +112,63 @@ export type Client = {
 
 // Constants
 const DEPARTMENTS = [
-  "Engineering",
-  "Design",
-  "Marketing",
-  "Sales",
-  "Product",
-  "Customer Success",
-  "Operations",
-  "Human Resources",
-  "Finance",
-  "Legal",
+  'Engineering',
+  'Design',
+  'Marketing',
+  'Sales',
+  'Product',
+  'Customer Success',
+  'Operations',
+  'Human Resources',
+  'Finance',
+  'Legal',
 ];
 
 const GALLERY_CATEGORIES = [
-  "Product",
-  "Team",
-  "Office",
-  "Events",
-  "Projects",
-  "Clients",
-  "Awards",
-  "Community",
+  'Product',
+  'Team',
+  'Office',
+  'Events',
+  'Projects',
+  'Clients',
+  'Awards',
+  'Community',
 ];
 
 const SERVICE_NAMES = [
-  "Web Development",
-  "Mobile Development",
-  "Cloud Solutions",
-  "AI/ML Consulting",
-  "DevOps Services",
-  "UI/UX Design",
-  "Digital Marketing",
-  "Data Analytics",
-  "Security Audit",
-  "Technical Support",
+  'Web Development',
+  'Mobile Development',
+  'Cloud Solutions',
+  'AI/ML Consulting',
+  'DevOps Services',
+  'UI/UX Design',
+  'Digital Marketing',
+  'Data Analytics',
+  'Security Audit',
+  'Technical Support',
 ];
 
 const SKILLS = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Node.js",
-  "Python",
-  "Go",
-  "AWS",
-  "Docker",
-  "Kubernetes",
-  "GraphQL",
-  "PostgreSQL",
-  "MongoDB",
-  "Redis",
-  "Machine Learning",
-  "Data Science",
-  "UI Design",
-  "UX Research",
-  "Product Management",
-  "Agile",
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Node.js',
+  'Python',
+  'Go',
+  'AWS',
+  'Docker',
+  'Kubernetes',
+  'GraphQL',
+  'PostgreSQL',
+  'MongoDB',
+  'Redis',
+  'Machine Learning',
+  'Data Science',
+  'UI Design',
+  'UX Research',
+  'Product Management',
+  'Agile',
 ];
 
 // Generate team member
@@ -183,15 +183,15 @@ const generateTeamMember = (overrides?: Partial<TeamMember>): TeamMember => {
     email: faker.internet.email(),
     linkedin: faker.helpers.maybe(
       () => `https://linkedin.com/in/${faker.internet.userName()}`,
-      { probability: 0.8 },
+      { probability: 0.8 }
     ),
     twitter: faker.helpers.maybe(
       () => `https://twitter.com/${faker.internet.userName()}`,
-      { probability: 0.6 },
+      { probability: 0.6 }
     ),
     github: faker.helpers.maybe(
       () => `https://github.com/${faker.internet.userName()}`,
-      { probability: 0.7 },
+      { probability: 0.7 }
     ),
     yearsOfExperience: faker.number.int({ min: 1, max: 20 }),
     skills: faker.helpers.arrayElements(SKILLS, { min: 3, max: 8 }),
@@ -211,16 +211,16 @@ const generateGalleryItem = (overrides?: Partial<GalleryItem>): GalleryItem => {
     category: faker.helpers.arrayElement(GALLERY_CATEGORIES),
     tags: faker.helpers.arrayElements(
       [
-        "innovation",
-        "design",
-        "technology",
-        "creativity",
-        "teamwork",
-        "success",
-        "award",
-        "milestone",
+        'innovation',
+        'design',
+        'technology',
+        'creativity',
+        'teamwork',
+        'success',
+        'award',
+        'milestone',
       ],
-      { min: 2, max: 4 },
+      { min: 2, max: 4 }
     ),
     createdAt: faker.date.recent({ days: 365 }),
     featured: faker.datatype.boolean({ probability: 0.2 }),
@@ -254,30 +254,30 @@ const generateService = (overrides?: Partial<Service>): Service => {
     name: faker.helpers.arrayElement(SERVICE_NAMES),
     description: `${faker.company.buzzPhrase()}. ${faker.lorem.paragraph()}`,
     icon: faker.helpers.arrayElement([
-      "🚀",
-      "💡",
-      "🎯",
-      "📊",
-      "🔧",
-      "🎨",
-      "📱",
-      "☁️",
-      "🔒",
-      "⚡",
+      '🚀',
+      '💡',
+      '🎯',
+      '📊',
+      '🔧',
+      '🎨',
+      '📱',
+      '☁️',
+      '🔒',
+      '⚡',
     ]),
     features: Array.from(
       { length: faker.number.int({ min: 3, max: 6 }) },
       () =>
-        `${faker.company.catchPhraseDescriptor()} ${faker.company.catchPhraseNoun()}`,
+        `${faker.company.catchPhraseDescriptor()} ${faker.company.catchPhraseNoun()}`
     ),
     price: hasPrice
       ? {
           amount: faker.number.int({ min: 99, max: 9999 }),
-          currency: "USD",
+          currency: 'USD',
           period: faker.helpers.arrayElement([
-            "monthly",
-            "yearly",
-            "one-time",
+            'monthly',
+            'yearly',
+            'one-time',
           ] as const),
         }
       : undefined,
@@ -293,11 +293,11 @@ const generateFAQ = (order: number, overrides?: Partial<FAQ>): FAQ => {
     question: `${faker.lorem.sentence()}?`,
     answer: faker.lorem.paragraph({ min: 2, max: 4 }),
     category: faker.helpers.arrayElement([
-      "General",
-      "Pricing",
-      "Technical",
-      "Support",
-      "Features",
+      'General',
+      'Pricing',
+      'Technical',
+      'Support',
+      'Features',
     ]),
     order,
     ...overrides,
@@ -335,7 +335,7 @@ let cachedCompanyStats: CompanyStats | null = null;
  */
 export async function fetchTeamMembers(
   limit = 12,
-  department?: string,
+  department?: string
 ): Promise<TeamMember[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 300));
@@ -348,7 +348,7 @@ export async function fetchTeamMembers(
 
   if (department) {
     members = members.filter(
-      (member) => member.department.toLowerCase() === department.toLowerCase(),
+      (member) => member.department.toLowerCase() === department.toLowerCase()
     );
   }
 
@@ -367,14 +367,14 @@ export async function fetchTeamMembers(
 export async function fetchGalleryItems(
   limit = 20,
   category?: string,
-  featuredOnly = false,
+  featuredOnly = false
 ): Promise<GalleryItem[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 350));
 
   if (!cachedGalleryItems) {
     cachedGalleryItems = Array.from({ length: 100 }, () =>
-      generateGalleryItem(),
+      generateGalleryItem()
     );
   }
 
@@ -382,7 +382,7 @@ export async function fetchGalleryItems(
 
   if (category) {
     items = items.filter(
-      (item) => item.category.toLowerCase() === category.toLowerCase(),
+      (item) => item.category.toLowerCase() === category.toLowerCase()
     );
   }
 
@@ -403,14 +403,14 @@ export async function fetchGalleryItems(
  */
 export async function fetchTestimonials(
   limit = 10,
-  featuredOnly = false,
+  featuredOnly = false
 ): Promise<Testimonial[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 250));
 
   if (!cachedTestimonials) {
     cachedTestimonials = Array.from({ length: 30 }, () =>
-      generateTestimonial(),
+      generateTestimonial()
     );
   }
 
@@ -457,31 +457,31 @@ export async function fetchContactInfo(): Promise<ContactInfo> {
 
   if (!cachedCompanyInfo) {
     cachedCompanyInfo = {
-      email: faker.internet.email({ provider: "company.com" }),
+      email: faker.internet.email({ provider: 'company.com' }),
       phone: faker.phone.number(),
       address: {
         street: faker.location.streetAddress(),
         city: faker.location.city(),
         state: faker.location.state(),
-        country: "United States",
+        country: 'United States',
         zipCode: faker.location.zipCode(),
       },
       socialMedia: {
-        twitter: "https://twitter.com/company",
-        linkedin: "https://linkedin.com/company/company",
-        facebook: "https://facebook.com/company",
-        instagram: "https://instagram.com/company",
-        youtube: "https://youtube.com/company",
-        github: "https://github.com/company",
+        twitter: 'https://twitter.com/company',
+        linkedin: 'https://linkedin.com/company/company',
+        facebook: 'https://facebook.com/company',
+        instagram: 'https://instagram.com/company',
+        youtube: 'https://youtube.com/company',
+        github: 'https://github.com/company',
       },
       businessHours: {
-        monday: { open: "09:00", close: "18:00" },
-        tuesday: { open: "09:00", close: "18:00" },
-        wednesday: { open: "09:00", close: "18:00" },
-        thursday: { open: "09:00", close: "18:00" },
-        friday: { open: "09:00", close: "17:00" },
-        saturday: "closed",
-        sunday: "closed",
+        monday: { open: '09:00', close: '18:00' },
+        tuesday: { open: '09:00', close: '18:00' },
+        wednesday: { open: '09:00', close: '18:00' },
+        thursday: { open: '09:00', close: '18:00' },
+        friday: { open: '09:00', close: '17:00' },
+        saturday: 'closed',
+        sunday: 'closed',
       },
     };
   }
@@ -523,7 +523,7 @@ export async function fetchCompanyStats(): Promise<CompanyStats> {
  */
 export async function fetchFAQs(
   limit?: number,
-  category?: string,
+  category?: string
 ): Promise<FAQ[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 200));
@@ -536,7 +536,7 @@ export async function fetchFAQs(
 
   if (category) {
     faqs = faqs.filter(
-      (faq) => faq.category.toLowerCase() === category.toLowerCase(),
+      (faq) => faq.category.toLowerCase() === category.toLowerCase()
     );
   }
 
@@ -553,7 +553,7 @@ export async function fetchFAQs(
  */
 export async function fetchClients(
   limit = 20,
-  featuredOnly = false,
+  featuredOnly = false
 ): Promise<Client[]> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 250));
@@ -595,18 +595,18 @@ export async function submitContactForm(formData: {
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
   // Simulate form validation
-  if (!formData.email.includes("@")) {
-    throw new Error("Invalid email address");
+  if (!formData.email.includes('@')) {
+    throw new Error('Invalid email address');
   }
 
   if (formData.message.length < 10) {
-    throw new Error("Message is too short");
+    throw new Error('Message is too short');
   }
 
   // Simulate successful submission
   return {
     success: true,
-    message: "Thank you for your message. We will get back to you soon!",
+    message: 'Thank you for your message. We will get back to you soon!',
     id: faker.string.uuid(),
   };
 }
@@ -617,19 +617,19 @@ export async function submitContactForm(formData: {
  * @returns Success response
  */
 export async function subscribeNewsletter(
-  email: string,
+  email: string
 ): Promise<{ success: boolean; message: string }> {
   // Simulate API delay
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Simulate email validation
-  if (!email.includes("@")) {
-    throw new Error("Invalid email address");
+  if (!email.includes('@')) {
+    throw new Error('Invalid email address');
   }
 
   return {
     success: true,
-    message: "Successfully subscribed to newsletter!",
+    message: 'Successfully subscribed to newsletter!',
   };
 }
 

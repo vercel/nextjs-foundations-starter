@@ -1,5 +1,5 @@
-import { ServerEnvDisplay } from "@/components/server-env-display";
-import { ClientEnvDisplay } from "@/components/client-env-display";
+import { ServerEnvDisplay } from '@/components/server-env-display';
+import { ClientEnvDisplay } from '@/components/client-env-display';
 
 export default function EnvDemoPage() {
   return (

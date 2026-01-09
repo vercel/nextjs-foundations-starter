@@ -1,4 +1,4 @@
-import { faker } from "@faker-js/faker";
+import { faker } from '@faker-js/faker';
 
 /**
  * Type definition for a gallery item
@@ -17,12 +17,12 @@ export type GalleryItem = {
 
 // Categories for gallery items
 const GALLERY_CATEGORIES = [
-  "Product",
-  "Team",
-  "Office",
-  "Events",
-  "Projects",
-  "Community",
+  'Product',
+  'Team',
+  'Office',
+  'Events',
+  'Projects',
+  'Community',
 ];
 
 /**
@@ -37,8 +37,8 @@ const generateGalleryItem = (overrides?: Partial<GalleryItem>): GalleryItem => {
     thumbnailUrl: faker.image.urlPicsumPhotos({ width: 400, height: 300 }),
     category: faker.helpers.arrayElement(GALLERY_CATEGORIES),
     tags: faker.helpers.arrayElements(
-      ["innovation", "design", "technology", "creativity", "teamwork"],
-      { min: 2, max: 4 },
+      ['innovation', 'design', 'technology', 'creativity', 'teamwork'],
+      { min: 2, max: 4 }
     ),
     createdAt: faker.date.recent({ days: 365 }),
     featured: faker.datatype.boolean({ probability: 0.2 }),
@@ -52,7 +52,7 @@ let cachedGalleryItems: GalleryItem[] | null = null;
 const getAllGalleryItems = (): GalleryItem[] => {
   if (!cachedGalleryItems) {
     cachedGalleryItems = Array.from({ length: 30 }, () =>
-      generateGalleryItem(),
+      generateGalleryItem()
     );
   }
   return cachedGalleryItems;
@@ -69,7 +69,7 @@ export async function getGalleryItems(limit = 20): Promise<GalleryItem[]> {
 
   const allItems = getAllGalleryItems();
   const sortedItems = allItems.sort(
-    (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
+    (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
   );
 
   return sortedItems.slice(0, limit);
