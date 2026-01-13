@@ -8,11 +8,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "@repo/api": "workspace:*",
     "@repo/ui": "workspace:*",
     "next": "16.1.1",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "zod": "^4.0.17"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
