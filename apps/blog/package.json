@@ -5,21 +5,22 @@
   "scripts": {
     "dev": "next dev --port 3001",
     "build": "next build",
+    "check-types": "next typegen && tsc --noEmit",
     "start": "next start"
   },
   "dependencies": {
     "@repo/api": "workspace:*",
     "@repo/ui": "workspace:*",
-    "next": "16.1.1",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
   }
 }

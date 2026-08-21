@@ -31,8 +31,8 @@ export default async function PostPage({ params }: Props) {
         </header>
 
         <div className="prose max-w-none">
-          {post.content.split('\n\n').map((paragraph, i) => (
-            <p key={i} className="mb-4">
+          {post.content.split('\n\n').map((paragraph) => (
+            <p key={paragraph} className="mb-4">
               {paragraph}
             </p>
           ))}

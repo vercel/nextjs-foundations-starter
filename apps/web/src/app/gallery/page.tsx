@@ -1,4 +1,4 @@
-// TODO: Convert to next/image (Section 4 Lesson 4)
+// TODO: Convert to next/image (Section 3 Lesson 4)
 
 const images = [
   { src: "https://picsum.photos/800/600?random=1", alt: "Mountain landscape" },
@@ -13,10 +13,10 @@ export default function GalleryPage() {
       <h1 className="mb-8 font-bold text-3xl">Photo Gallery</h1>
 
       <div className="grid grid-cols-2 gap-4">
-        {images.map((image, i) => (
-          <div key={i} className="relative aspect-[4/3]">
+        {images.map((image) => (
+          <div key={image.src} className="relative aspect-[4/3]">
             {/* TODO: Replace with next/image for optimization */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* biome-ignore lint/performance/noImgElement: intentional optimization exercise */}
             <img
               src={image.src}
               alt={image.alt}
