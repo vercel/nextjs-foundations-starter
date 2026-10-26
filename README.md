@@ -2,7 +2,7 @@
 
 A Turborepo monorepo starter for the Next.js Foundations certification course.
 
-The starter targets Next.js 16.3 and intentionally leaves selected exercises
+The starter targets Next.js 16.4 and intentionally leaves selected exercises
 unfinished. Those fixtures should be improved as you progress through the course;
 the repository itself installs, type-checks, lints, and builds before you begin.
 
@@ -56,7 +56,7 @@ nextjs-foundations-starter/
 
 ## Tech Stack
 
-- [Next.js 16.3](https://nextjs.org/) - React framework
+- [Next.js 16.4](https://nextjs.org/) - React framework
 - [Turborepo](https://turbo.build/repo) - Monorepo build system
 - [pnpm](https://pnpm.io/) - Package manager
 - [Biome](https://biomejs.dev/) - Linting and formatting

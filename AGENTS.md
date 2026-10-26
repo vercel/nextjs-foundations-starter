@@ -21,7 +21,7 @@ nextjs-foundations-starter/
 
 ## Tech Stack
 
-- **Next.js 16.3** - React framework with App Router and async request APIs
+- **Next.js 16.4** - React framework with App Router and async request APIs
 - **React 19** - Latest React with Server Components
 - **TypeScript** - Strict mode enabled
 - **Tailwind CSS 4** - Utility-first styling

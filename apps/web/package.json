@@ -12,16 +12,16 @@
     "@radix-ui/react-dialog": "^1.1.23",
     "@repo/api": "workspace:*",
     "@repo/ui": "workspace:*",
-    "next": "16.3.1",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^24.13.3",
-    "@types/react": "^19.2.18",
-    "@types/react-dom": "^19.2.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   }
