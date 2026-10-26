@@ -1,4 +1,63 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
-  "extends": ["ultracite"]
+  "$schema": "https://biomejs.dev/schemas/2.5.9/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "trailingCommas": "es5"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "includes": ["**", "!**/public/**"],
+    "rules": {
+      "preset": "recommended"
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["apps/blog/**", "packages/**"],
+      "javascript": {
+        "formatter": {
+          "quoteStyle": "single"
+        }
+      }
+    },
+    {
+      "includes": [
+        "apps/web/next.config.ts",
+        "apps/web/postcss.config.mjs",
+        "apps/web/src/app/env-demo/page.tsx",
+        "apps/web/src/components/client-env-display.tsx"
+      ],
+      "javascript": {
+        "formatter": {
+          "quoteStyle": "single"
+        }
+      }
+    },
+    {
+      "includes": ["apps/web/src/app/layout.tsx"],
+      "linter": {
+        "rules": {
+          "security": {
+            "noDangerouslySetInnerHtml": "off"
+          }
+        }
+      }
+    }
+  ]
 }

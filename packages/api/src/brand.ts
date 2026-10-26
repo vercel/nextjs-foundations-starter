@@ -182,15 +182,15 @@ const generateTeamMember = (overrides?: Partial<TeamMember>): TeamMember => {
     bio: faker.lorem.paragraph({ min: 2, max: 4 }),
     email: faker.internet.email(),
     linkedin: faker.helpers.maybe(
-      () => `https://linkedin.com/in/${faker.internet.userName()}`,
+      () => `https://linkedin.com/in/${faker.internet.username()}`,
       { probability: 0.8 }
     ),
     twitter: faker.helpers.maybe(
-      () => `https://twitter.com/${faker.internet.userName()}`,
+      () => `https://twitter.com/${faker.internet.username()}`,
       { probability: 0.6 }
     ),
     github: faker.helpers.maybe(
-      () => `https://github.com/${faker.internet.userName()}`,
+      () => `https://github.com/${faker.internet.username()}`,
       { probability: 0.7 }
     ),
     yearsOfExperience: faker.number.int({ min: 1, max: 20 }),

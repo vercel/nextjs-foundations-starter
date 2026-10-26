@@ -15,13 +15,13 @@ nextjs-foundations-starter/
 │   ├── ui/           # Shared React components (@repo/ui)
 │   └── api/          # Mock data layer with Faker (@repo/api)
 ├── turbo.json        # Turborepo task configuration
-├── biome.jsonc       # Linting and formatting (Biome + ultracite)
+├── biome.jsonc       # Linting and formatting (Biome)
 └── package.json      # Root workspace configuration
 ```
 
 ## Tech Stack
 
-- **Next.js 16** - React framework with App Router
+- **Next.js 16.4** - React framework with App Router and async request APIs
 - **React 19** - Latest React with Server Components
 - **TypeScript** - Strict mode enabled
 - **Tailwind CSS 4** - Utility-first styling
@@ -156,7 +156,7 @@ Path aliases are configured:
 
 ## Biome (Linting & Formatting)
 
-This project uses Biome instead of ESLint/Prettier. Configuration extends `ultracite` preset.
+This project uses Biome instead of ESLint/Prettier. Tailwind directives are enabled in the CSS parser.
 
 ```bash
 # Check for issues
@@ -244,10 +244,9 @@ PORT=3002 pnpm dev --filter @repo/web
 ### Type Errors After Package Changes
 
 ```bash
-# Clear Turborepo cache and rebuild
-pnpm clean
+# Reinstall, then force a rebuild if cache state is suspect
 pnpm install
-pnpm build
+pnpm exec turbo run build --force
 ```
 
 ### Biome Conflicts with Editor

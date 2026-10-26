@@ -5,7 +5,14 @@
   "exports": {
     "./*": "./src/*.ts"
   },
+  "scripts": {
+    "check-types": "tsc --noEmit"
+  },
   "dependencies": {
-    "@faker-js/faker": "^9.9.0"
+    "@faker-js/faker": "^10.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "typescript": "^5.9.3"
   }
 }
